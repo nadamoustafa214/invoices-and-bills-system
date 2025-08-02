@@ -8,7 +8,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table
+@Table(name = "products")
 @Setter
 @Getter
 public class product extends entityBase<Long> {

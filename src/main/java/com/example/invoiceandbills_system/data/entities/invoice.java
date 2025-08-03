@@ -15,6 +15,7 @@ import java.util.Date;
 @Setter
 @Getter
 public class invoice extends entityBase<Long> {
+    @Column(nullable = false, unique = true)
     private String invoiceNumber;
     @Timestamp
     @Column(nullable=false)

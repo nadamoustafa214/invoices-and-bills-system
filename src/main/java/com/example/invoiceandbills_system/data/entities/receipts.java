@@ -1,6 +1,7 @@
 package com.example.invoiceandbills_system.data.entities;
 
 import com.example.invoiceandbills_system.base.entityBase;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
@@ -19,5 +20,6 @@ public class receipts extends entityBase<Long> {
     private payment payment;
     private long paymentId;
     private Date data;
+    @Column(nullable = false,unique = true)
     private String receiptNumber;
 }

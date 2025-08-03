@@ -22,7 +22,7 @@ public class payment extends entityBase<Long> {
     @Column(nullable=false)
     private Date date;
     @Column(nullable=false)
-    private String type_of_payment; // will add from enum
+    private String typeOfPayment; // will add from enum
     private long transactionId; // from gateway
 
 }

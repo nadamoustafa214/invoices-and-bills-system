@@ -12,12 +12,13 @@ import lombok.Setter;
 @Setter
 @Getter
 public class product extends entityBase<Long> {
-    @Column(nullable=false,unique = true)
+    @Column(nullable=false,unique = true,name="product_name")
     private String productName;
     private String description;
     @Column(nullable=false)
     private Double price;
     private boolean active=true;
+    @Column(name="tax_rate")
     private double taxRate;
     private double discount;
 

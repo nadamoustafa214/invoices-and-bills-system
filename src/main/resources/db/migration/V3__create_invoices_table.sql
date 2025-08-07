@@ -1,18 +1,18 @@
 -- invoice table
 CREATE TABLE invoices(
-                          id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-                         inviceNumber VARCHAR unique not null ,
-                          invoiceDate DATE not null ,
-                          dueDate DATE ,
-                            subtotal DOUBLE not null,
-                            total DOUBLE not null,
-                            status VARCHAR,
-                            customerId BIGINT not null ,
-                            notes TEXT,
-                            currency VARCHAR,
-                          isDeleted BOOLEAN  DEFAULT false,
+                          id BIGINT AUTO_INCREMENT PRIMARY KEY,
+                          invice_number VARCHAR(500) NOT NULL UNIQUE ,
+                          invoice_date DATE NOT NULL ,
+                          due_date DATE ,
+                          subtotal DOUBLE NOT NULL,
+                          total DOUBLE NOT NULL,
+                          status VARCHAR (20),
+                          customer_id BIGINT NOT NULL ,
+                          notes TEXT,
+                          currency VARCHAR(4),
+                          is_deleted BOOLEAN  DEFAULT false,
                           created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-                          updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-                          deleted_at TIMESTAMP NULL
-                          FOREIGN KEY (customerId) references customers(id)
+                          updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                          deleted_at TIMESTAMP NULL,
+                          FOREIGN KEY (customer_id) references customers(id)
 )

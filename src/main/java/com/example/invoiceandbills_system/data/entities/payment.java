@@ -13,7 +13,9 @@ import java.util.Date;
 @Getter
 public class payment extends entityBase<Long> {
     @OneToOne
+    @JoinColumn(name="invoice_id",nullable = false,insertable = false, updatable = false)
     private invoice invoice;
+    @Column(nullable=false,name = "invoice_id")
     private long invoiceId;
     @Column(nullable=false)
     private double amount;
@@ -21,8 +23,9 @@ public class payment extends entityBase<Long> {
     private String status; // will add from enum
     @Column(nullable=false)
     private Date date;
-    @Column(nullable=false)
+    @Column(nullable=false ,name = "type_of_payment")
     private String typeOfPayment; // will add from enum
+    @Column(name = "transaction_id")
     private long transactionId; // from gateway
 
 }

@@ -15,11 +15,12 @@ import java.util.Date;
 @Setter
 @Getter
 public class invoice extends entityBase<Long> {
-    @Column(nullable = false, unique = true)
+    @Column(nullable = false, unique = true,name = "invoice_number")
     private String invoiceNumber;
     @Timestamp
-    @Column(nullable=false)
+    @Column(nullable=false,name="invoice_date")
     private Date invoiceDate;
+    @Column(name="due_date")
     private Date dueDate; // for deadline for payment
     @Column(nullable=false)
     private double subtotal;
@@ -28,7 +29,9 @@ public class invoice extends entityBase<Long> {
     @Column(nullable=false)
     private String status;
     @ManyToOne
+    @JoinColumn(name="customer_id", nullable=false, insertable=false, updatable=false)
     private customer customer;
+    @Column(name="customer_id",nullable = false)
     private long customerId;
     private String notes;
     private String currency;

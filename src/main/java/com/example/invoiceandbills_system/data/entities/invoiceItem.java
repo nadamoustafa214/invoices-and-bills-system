@@ -12,16 +12,19 @@ import java.util.List;
 @Getter
 public class invoiceItem extends entityBase<Long> {
     @OneToOne
+    @JoinColumn(name="invoice_id", nullable = false, updatable = false, insertable = false)
     private invoice invoice;
+    @Column(nullable = false,name = "invoice_id")
     private long invoiceId;
     @ManyToMany
     private List<product> product;
-    @Column(nullable=false)
+    @Column(nullable=false,name="unit_price")
     private double unitPrice;
     @Column(nullable=false)
     private int quantity;
+    @Column(name="tax_rate")
     private double taxRate;
-    @Column(nullable=false)
+    @Column(nullable=false,name="total_price")
     private double totalPrice;
 
 

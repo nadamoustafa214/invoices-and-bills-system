@@ -1,10 +1,7 @@
 package com.example.invoiceandbills_system.data.entities;
 
 import com.example.invoiceandbills_system.base.entityBase;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.OneToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -17,9 +14,11 @@ import java.util.Date;
 @Getter
 public class receipts extends entityBase<Long> {
     @OneToOne
+    @JoinColumn(name = "payment_id",nullable = false,updatable = false,insertable = false)
     private payment payment;
+    @Column(name = "payment_id",nullable = false)
     private long paymentId;
     private Date data;
-    @Column(nullable = false,unique = true)
+    @Column(nullable = false,unique = true,name = "receipt_number")
     private String receiptNumber;
 }

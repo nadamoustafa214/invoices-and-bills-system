@@ -1,15 +1,15 @@
 
 -- product table
 CREATE TABLE products(
-                         id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-                        productName VARCHAR(50) unique not null ,
+                        id BIGINT AUTO_INCREMENT PRIMARY KEY,
+                        product_name VARCHAR(255) NOT NULL UNIQUE ,
                         description TEXT,
-                        price DOUBLE not null ,
-                        active Boolean DEFAULT true,
-                        taxRate DOUBLE ,
-                        discount DOUBLE default 0,
-                        isDeleted BOOLEAN  DEFAULT false,
-                         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-                         updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-                         deleted_at TIMESTAMP NULL
+                        price DOUBLE NOT NULL ,
+                        active BOOLEAN DEFAULT true,
+                        tax_rate DOUBLE ,
+                        discount DOUBLE DEFAULT 0,
+                        is_deleted BOOLEAN  DEFAULT false,
+                        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                        updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                        deleted_at TIMESTAMP NULL
 )

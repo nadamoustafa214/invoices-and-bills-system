@@ -12,13 +12,13 @@ import java.util.Date;
 @Table(name="receipts")
 @Setter
 @Getter
-public class receipts extends entityBase<Long> {
+public class receipt extends entityBase<Long> {
     @OneToOne
     @JoinColumn(name = "payment_id",nullable = false,updatable = false,insertable = false)
     private payment payment;
     @Column(name = "payment_id",nullable = false)
     private long paymentId;
-    private Date data;
+    private Date date;
     @Column(nullable = false,unique = true,name = "receipt_number")
     private String receiptNumber;
 }

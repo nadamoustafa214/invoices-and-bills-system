@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
 
 @Setter
 @Getter
-public class receiptDto extends DtoBase<Long> {
+public class ReceiptDto extends DtoBase<Long> {
     private long paymentId;
     private String receipt_number;
     private LocalDateTime receipt_date;

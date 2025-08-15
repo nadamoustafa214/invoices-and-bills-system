@@ -9,7 +9,7 @@ import java.util.Date;
 
 @Setter
 @Getter
-public class invoiceDto extends DtoBase<Long> {
+public class InvoiceDto extends DtoBase<Long> {
     private String invoice_number;
     private LocalDateTime invoice_date;
     private Date due_date;

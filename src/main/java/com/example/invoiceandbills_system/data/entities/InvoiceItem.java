@@ -10,14 +10,14 @@ import java.util.List;
 @Table(name="invoice_items")
 @Setter
 @Getter
-public class invoiceItem extends entityBase<Long> {
+public class InvoiceItem extends entityBase<Long> {
     @OneToOne
     @JoinColumn(name="invoice_id", nullable = false, updatable = false, insertable = false)
-    private invoice invoice;
+    private Invoice invoice;
     @Column(nullable = false,name = "invoice_id")
     private long invoiceId;
     @ManyToMany
-    private List<product> product;
+    private List<Product> product;
     @Column(nullable=false,name="unit_price")
     private double unitPrice;
     @Column(nullable=false)

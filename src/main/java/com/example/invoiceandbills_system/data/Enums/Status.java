@@ -1,5 +1,5 @@
 package com.example.invoiceandbills_system.data.Enums;
 
-public enum status {
+public enum Status {
     PENDING, SUCCESS, FAILED, REFUNDED
 }

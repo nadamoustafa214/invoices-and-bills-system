@@ -8,11 +8,11 @@ import java.util.List;
 
 @Setter
 @Getter
-public class invoiceItemDto extends DtoBase<Long> {
+public class InvoiceItemDto extends DtoBase<Long> {
     private long invoiceId;
     private double unit_price;
     private int quantity;
     private double tax;
-    private List<productDto> products;
+    private List<ProductDto> products;
     private double total_price;
 }

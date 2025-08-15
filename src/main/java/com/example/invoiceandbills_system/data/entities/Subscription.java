@@ -1,4 +1,4 @@
 package com.example.invoiceandbills_system.data.entities;
 
-public class subscription {
+public class Subscription {
 }

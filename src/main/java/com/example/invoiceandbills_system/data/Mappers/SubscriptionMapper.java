@@ -1,4 +1,4 @@
 package com.example.invoiceandbills_system.data.Mappers;
 
-public interface subscriptionMapper {
+public interface SubscriptionMapper {
 }

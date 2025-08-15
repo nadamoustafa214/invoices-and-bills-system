@@ -11,10 +11,10 @@ import java.util.Date;
 @Table(name="payments")
 @Setter
 @Getter
-public class payment extends entityBase<Long> {
+public class Payment extends entityBase<Long> {
     @OneToOne
     @JoinColumn(name="invoice_id",nullable = false,insertable = false, updatable = false)
-    private invoice invoice;
+    private Invoice invoice;
     @Column(nullable=false,name = "invoice_id")
     private long invoiceId;
     @Column(nullable=false)

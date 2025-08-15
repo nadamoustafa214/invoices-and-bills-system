@@ -12,10 +12,10 @@ import java.util.Date;
 @Table(name="receipts")
 @Setter
 @Getter
-public class receipt extends entityBase<Long> {
+public class Receipt extends entityBase<Long> {
     @OneToOne
     @JoinColumn(name = "payment_id",nullable = false,updatable = false,insertable = false)
-    private payment payment;
+    private Payment payment;
     @Column(name = "payment_id",nullable = false)
     private long paymentId;
     private Date date;

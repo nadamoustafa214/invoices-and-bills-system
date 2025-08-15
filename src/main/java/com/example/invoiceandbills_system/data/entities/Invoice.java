@@ -3,7 +3,6 @@ package com.example.invoiceandbills_system.data.entities;
 import com.example.invoiceandbills_system.base.entityBase;
 import jakarta.persistence.*;
 import jdk.jfr.Timestamp;
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -14,7 +13,7 @@ import java.util.Date;
 @Table(name = "invoices")
 @Setter
 @Getter
-public class invoice extends entityBase<Long> {
+public class Invoice extends entityBase<Long> {
     @Column(nullable = false, unique = true,name = "invoice_number")
     private String invoiceNumber;
     @Timestamp
@@ -30,7 +29,7 @@ public class invoice extends entityBase<Long> {
     private String status;
     @ManyToOne
     @JoinColumn(name="customer_id", nullable=false, insertable=false, updatable=false)
-    private customer customer;
+    private Customer customer;
     @Column(name="customer_id",nullable = false)
     private long customerId;
     private String notes;

@@ -6,7 +6,7 @@ import lombok.Setter;
 
 @Setter
 @Getter
-public class customerDto extends DtoBase<Long> {
+public class CustomerDto extends DtoBase<Long> {
     private String name;
     private String email;
     private String phone;

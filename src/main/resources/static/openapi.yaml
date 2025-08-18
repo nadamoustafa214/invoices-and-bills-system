@@ -1,0 +1,144 @@
+openapi: 3.0.1
+info:
+  title: invoice and bills system
+  version: 1.0.0
+servers:
+  - url: http://localhost:8080
+
+tags:
+  - Products
+
+paths:
+  /products:
+    get:
+      summary: get products
+      operationId: getProducts
+      tags: [Products]
+      responses:
+        '200':
+          description: list of products
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Product'
+
+    post:
+      tags: [Products]
+      summary: create a product
+      operationId: saveProduct
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Product'
+      responses:
+        '201':
+          description: product created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+  /product/{id}:
+    get:
+      tags: [Products]
+      summary: get product by id
+      operationId: getProductById
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: number
+            minimum: 1
+      responses:
+        '200':
+          description: product found
+          content:
+            appliction/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+        '404':
+          description: product not found
+
+    put:
+      tags: [Products]
+      summary: update a product
+      operationId: updateProduct
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            minimum: 1
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Product'
+      responses:
+        '200':
+          description: product updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+
+    patch:
+      tags: [Products]
+      summary: delete a product
+      operationId: deleteProduct
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            minimum: 1
+      responses:
+        '204':
+          description: product deleted
+        '400':
+          description: product not found
+
+
+
+
+
+
+
+components:
+  schemas:
+    Product:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        productName:
+          type: string
+          maximum: 2
+          maxLength: 250
+          required: true
+        description:
+          type: string
+        price:
+          type: number
+          minimum: 0
+          required: true
+        active:
+          type: boolean
+          default: true
+        taxRate:
+          type: number
+          minimum: 0
+          default: 0
+        discount:
+          type: number
+          minimum: 0
+          maximum: 100
+

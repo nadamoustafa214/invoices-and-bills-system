@@ -15,24 +15,25 @@ import java.util.List;
 public class ProductController implements ProductApi {
     private final ProductService productService;
 
-    @Override
-    public ResponseEntity<ProductDto> getProductById(Long productId) {
-        if (productId == null) {
+//@Override
+    public ResponseEntity<ProductDto> getProductById(Long id) {
+        if (id == null) {
             return ResponseEntity.notFound().build();
         }
-        return ResponseEntity.ok(productService.getProductById(productId));
+        return ResponseEntity.ok(productService.getProductById(id));
     }
-
+//@Override
     public ResponseEntity<List<ProductDto>> getProducts(){
         return ResponseEntity.ok(productService.getProducts());
     }
-
-    public ResponseEntity<ProductDto> updateProduct(ProductDto productDto,long productId) {
-        if (productDto == null||productDto.getId()!=productId) {
+//@Override
+    public ResponseEntity<ProductDto> updateProduct(long id,ProductDto productDto) {
+        if (productDto == null|| (productDto.getId()!=null && !productDto.getId().equals(id))) {
             return ResponseEntity.badRequest().build();
         }
-        return ResponseEntity.ok(productService.updateProduct(productId, productDto));
+        return ResponseEntity.ok(productService.updateProduct(id, productDto));
     }
+
     public ResponseEntity<ProductDto> saveProduct(ProductDto productDto) {
         if (productDto == null) {
             return ResponseEntity.badRequest().build();

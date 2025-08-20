@@ -2,8 +2,6 @@ openapi: 3.0.1
 info:
   title: invoice and bills system
   version: 1.0.0
-servers:
-  - url: http://localhost:8080
 
 tags:
   - name: Products
@@ -23,7 +21,7 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Product'
-
+  /product:
     post:
       tags: [Products]
       summary: create a product
@@ -98,7 +96,6 @@ paths:
           required: true
           schema:
             type: integer
-            minimum: 1
       responses:
         '204':
           description: product deleted

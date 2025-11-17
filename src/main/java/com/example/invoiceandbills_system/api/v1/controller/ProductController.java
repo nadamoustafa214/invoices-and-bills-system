@@ -1,6 +1,6 @@
 package com.example.invoiceandbills_system.api.v1.controller;
 
-import com.example.invoiceandbills_system.api.v1.generated.ProductApi;
+import com.example.invoiceandbills_system.api.v1.generated.ProductsApi;
 import com.example.invoiceandbills_system.data.DTOs.ProductDto;
 import com.example.invoiceandbills_system.data.service.ProductService;
 import lombok.AllArgsConstructor;
@@ -15,7 +15,7 @@ import java.util.List;
 @RestController
 @AllArgsConstructor
 @RequestMapping
-public class ProductController implements ProductApi {
+public class ProductController implements ProductsApi {
     private final ProductService productService;
 
 //@Override
@@ -26,6 +26,7 @@ public class ProductController implements ProductApi {
 //        return ResponseEntity.ok(productService.getProductById(id));
 //    }
 
+    @Override
     @GetMapping("/products")
     public ResponseEntity<List<ProductDto>> getProducts(){
         return ResponseEntity.ok(productService.getProducts());

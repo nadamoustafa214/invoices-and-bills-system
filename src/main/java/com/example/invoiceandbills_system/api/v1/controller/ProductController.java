@@ -25,12 +25,12 @@ public class ProductController implements ProductsApi {
 //        }
 //        return ResponseEntity.ok(productService.getProductById(id));
 //    }
-
-    @Override
-    @GetMapping("/products")
-    public ResponseEntity<List<ProductDto>> getProducts(){
-        return ResponseEntity.ok(productService.getProducts());
-    }
+//
+//    @Override
+//    @GetMapping("/products")
+//    public ResponseEntity<List<ProductDto>> getProducts(){
+//        return ResponseEntity.ok(productService.getProducts());
+//    }
 //@Override
     public ResponseEntity<ProductDto> updateProduct(long id,ProductDto productDto) {
         if (productDto == null|| (productDto.getId()!=null && !productDto.getId().equals(id))) {

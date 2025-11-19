@@ -37,12 +37,13 @@ public class ProductService {
    }
 
    @Transactional(readOnly = true)
-   public Product getProductById(Long id) {
+   public ProductDto getProductById(Long id) {
       Product product= productRepo.findById(id).orElseThrow(()->new RuntimeException("Product not found"));
-      if(product == null || product.getDeleted_at()!=null) {
+      if(product.getDeleted_at()!=null) {
           throw new RuntimeException("Product not found");
       }
-       return product;
+
+       return productMapper.fromEntity(product);
    }
 
    @Transactional

@@ -61,7 +61,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/productResponse'
         '404':
-          description: product not found
+          description: product not found 444
 
     put:
       tags: [Products]

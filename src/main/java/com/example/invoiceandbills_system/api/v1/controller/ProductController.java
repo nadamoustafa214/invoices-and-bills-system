@@ -45,6 +45,16 @@ public class ProductController implements ProductsApi {
         List<Product> product = productMapper.fromDTOList(productService.getProducts());
         return ResponseEntity.ok(productGenratorMapper.fromProductResponse(product));
     }
+
+    @Override
+    public  ResponseEntity<ProductResponse> saveProduct(ProductRequest product){
+        if(product == null){
+            return ResponseEntity.notFound().build();
+        }
+        ProductDto productDto= productMapper.fromEntity( productGenratorMapper.fromProductRequest(product)); // entity to dto
+        return ResponseEntity.ok(productGenratorMapper.fromProductDto(productService.saveProduct(productDto)));
+
+    }
 }
 
 //
@@ -63,3 +73,5 @@ public class ProductController implements ProductsApi {
 //        return ResponseEntity.ok(productService.saveProduct(productDto));
 //    }
 //}
+
+

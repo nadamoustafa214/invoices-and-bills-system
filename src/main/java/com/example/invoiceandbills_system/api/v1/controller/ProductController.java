@@ -51,8 +51,11 @@ public class ProductController implements ProductsApi {
         if(product == null){
             return ResponseEntity.notFound().build();
         }
-        ProductDto productDto= productMapper.fromEntity( productGenratorMapper.fromProductRequest(product)); // entity to dto
-        return ResponseEntity.ok(productGenratorMapper.fromProductDto(productService.saveProduct(productDto)));
+        Product p=  productGenratorMapper.fromProductRequest(product);
+
+        ProductDto productDto= productMapper.fromEntity( p); // entity to dto
+            ProductResponse PR =productGenratorMapper.fromProductDto(productService.saveProduct(productDto));
+        return ResponseEntity.ok(PR);
 
     }
 }
